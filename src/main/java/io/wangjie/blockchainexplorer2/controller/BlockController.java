@@ -25,10 +25,11 @@ public class BlockController {
     @Autowired
     private BitcoinJsonRpcClient bitcoinJsonRpcClient;
 
-    @Autowired
-    private BlockMapper blockMapper;
 
-    @Autowired
+    /*@Autowired
+    private BlockMapper blockMapper;*/
+
+    @Autowired(required = false)
     private BlockService blockService;
 
     @Value("${blockchain.recentCount}")
