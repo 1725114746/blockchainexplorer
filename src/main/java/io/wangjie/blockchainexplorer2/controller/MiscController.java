@@ -23,13 +23,15 @@ public class MiscController {
     }
 
     @GetMapping("/importFromHeight")
-    public void importFromHeight(Integer blockHeight,Boolean isClean){
-        miscService.importFromHeight(blockHeight,isClean);
+    public void importFromHeight(@RequestParam Integer blockHeight,
+                                 @RequestParam(required = false, defaultValue = "false") Boolean isClean){
+        miscService.importFromHeight(blockHeight, isClean);
     }
 
     @GetMapping("/importFromHash")
-    public void importFromHash(String blockhash,Boolean isClean){
-        miscService.importFromHash(blockhash,isClean);
+    public void importFromHash(@RequestParam String blockhash,
+                               @RequestParam(required = false, defaultValue = "false") Boolean isClean) throws Throwable {
+        miscService.importFromHash(blockhash, isClean);
     }
 
     @GetMapping("/getImportState")
